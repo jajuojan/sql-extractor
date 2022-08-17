@@ -1,12 +1,16 @@
+"""Base-class for databases"""
+import abc
 import typing
+from abc import ABCMeta
 
-from database.SqlRow import SqlRow
+from database.sql_row import SqlRow
 
 
 # Base class for all database classes
-class DataBase:
-    # def __init__(self, name, user, password, host, port):
-    def __init__(self):
+class DataBase(metaclass=ABCMeta):
+    """Base-class for databases"""
+
+    def __init__(self) -> None:
         pass
         # TBD
         # self.name = name
@@ -15,11 +19,14 @@ class DataBase:
         # self.host = host
         # self.port = port
 
+    @abc.abstractmethod
     def fetch_raw_sql_rows(self, sql: str) -> typing.Any:
-        raise NotImplementedError
+        """Fetch one or several SQL rows"""
 
+    @abc.abstractmethod
     def fetch_sql_rows(self, sql: str) -> typing.List[SqlRow]:
-        raise NotImplementedError
+        """Fetch a single SQL row"""
 
+    @abc.abstractmethod
     def get_version(self) -> str:
-        raise NotImplementedError
+        """Return the version fo the database"""

@@ -1,17 +1,20 @@
-from typing import Any, List
+"""TBD"""
 import typing
+from typing import Any, List
+
 import pyodbc
-from database.Database import DataBase
-from database.SqlRow import SqlRow, SqlRowItem
+
+from database.database import DataBase
+from database.sql_row import SqlRow, SqlRowItem
 
 # from database.Database import DataBase
 # from helpers import get_local_server_name
 
 
 class TSqlDataBase(DataBase):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
-        self._connection = None
+        self._connection: pyodbc.Connection = None
 
     @staticmethod
     def _get_local_connection(
@@ -45,7 +48,7 @@ class TSqlDataBase(DataBase):
     def _sql_row_item_from_description(self, description: tuple) -> SqlRowItem:
         a = SqlRowItem()
         # (name, type_code, display_size, internal_size, precision, scale, null_ok).
-        #for i in description:
+        # for i in description:
         #    print(i)
         return a
 

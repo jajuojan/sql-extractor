@@ -1,4 +1,5 @@
-from database.TSqlDatabase import TSqlDataBase
+from database.tsql_database import TSqlDataBase
+
 
 # TODO
 # db2
