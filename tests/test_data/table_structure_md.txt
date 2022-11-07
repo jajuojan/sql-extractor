@@ -1,0 +1,6 @@
+## test_table
+| Name | Type |
+| ------------- |:----- |
+| id | int |
+| rowguid | uniqueidentifier |
+| modifiedDate | datetime |

@@ -1,0 +1,12 @@
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [test_schema].[test_table](
+    [id] [int] IDENTITY(xxx,xxx) NOT FOR REPLICATION,
+    [rowguid] [uniqueidentifier] IDENTITY(xxx,xxx) NOT FOR REPLICATION,
+    [modifiedDate] [datetime] IDENTITY(xxx,xxx) NOT FOR REPLICATION
+) ON [PRIMARY]
+GO

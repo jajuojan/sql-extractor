@@ -1,0 +1,9 @@
+
+INSERT INTO [test_schema].[test_table] ([id], [rowguid], [modifiedDate])
+     VALUES
+    (
+          -- id, int
+         ,-- rowguid, uniqueidentifier
+         ,-- modifiedDate, datetime
+    )
+GO

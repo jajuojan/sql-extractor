@@ -1,0 +1,19 @@
+<!DOCTYPE html> <html> <head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    </style>
+</head> <body>
+<h2>test_table</h2>
+<table>
+<tr> <th>Name</th> <th>Type</th> </tr>
+<tr> <th>id</th> <th>int</th> </tr>
+<tr> <th>rowguid</th> <th>uniqueidentifier</th> </tr>
+<tr> <th>modifiedDate</th> <th>datetime</th> </tr>
+</table>
+
+</body> </html>

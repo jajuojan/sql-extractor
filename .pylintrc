@@ -1,0 +1,4 @@
+[MESSAGES CONTROL]
+
+disable=
+    attribute-defined-outside-init,
