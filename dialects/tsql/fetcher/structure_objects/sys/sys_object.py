@@ -38,6 +38,7 @@ _types = {
 
 @dataclass
 class SysObject:
+    # pylint: disable=too-many-instance-attributes
     """sys.objects"""
 
     name: str

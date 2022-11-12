@@ -43,8 +43,10 @@ class TableCreationFormatter(BaseFormatter):
 
         sections = []
 
+        seed_value = identity_column.seed_value.strip()
+        identity_value = identity_column.increment_value.strip()
         sections.append(
-            f"IDENTITY({identity_column.seed_value.strip()},{identity_column.increment_value.strip()})"
+            f"IDENTITY({seed_value},{identity_value})"
         )
 
         if identity_column.is_not_for_replication:

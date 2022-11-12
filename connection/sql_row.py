@@ -22,6 +22,7 @@ class SqlTypeRowItem(SqlRowItem):
         scale: int,
         null_ok: bool,
     ) -> None:
+        # pylint: disable=too-many-arguments
         self.name = name
         self.type_code = type_code
         self.display_size = display_size
