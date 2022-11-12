@@ -6,21 +6,24 @@ from cli.commands.base_command import BaseCommand, _requires_table
 from connection.database import DataBaseConnection
 from formatters.base_formatter import FormatterType
 
-_COMMAND_NAME = "print-table-structure"
 _FORMATS = ["html", "md"]
 
 
 class PrintTableStructureCommand(BaseCommand):
     """Prints the create table statement for the given table."""
 
+    # pylint: disable=protected-access
+
+    @property
     @staticmethod
     def command_name() -> str:
-        return _COMMAND_NAME
+        return "print-table-structure"
 
     @staticmethod
     def parser_sub_parser(sub_parsers: argparse._SubParsersAction) -> None:
         parser: argparse.ArgumentParser = sub_parsers.add_parser(
-            _COMMAND_NAME, help="Prints the table structure."
+            PrintTableStructureCommand.command_name(),
+            help="Prints the table structure.",
         )
         BaseCommand._add_table_arguments_to_sub_parser(parser)
         parser.add_argument(

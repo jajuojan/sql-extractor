@@ -22,11 +22,11 @@ class TsqlFormatterHandler:
         """Returns the DB-connection based on the dialect and connection string"""
         if formatter_type == FormatterType.SQL_CREATE_TABLE:
             return TableCreationFormatter()
-        elif formatter_type == FormatterType.SQL_CREATE_INSERT:
+        if formatter_type == FormatterType.SQL_CREATE_INSERT:
             return TableInsertFormatter()
-        elif formatter_type == FormatterType.HTML_TABLE_STRUCTURE:
+        if formatter_type == FormatterType.HTML_TABLE_STRUCTURE:
             return HtmlTableStructureFormatter()
-        elif formatter_type == FormatterType.MD_TABLE_STRUCTURE:
+        if formatter_type == FormatterType.MD_TABLE_STRUCTURE:
             return MdTableStructureFormatter()
 
         raise Exception("Unknown formatter type")

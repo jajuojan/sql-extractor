@@ -6,13 +6,15 @@ from dialects.tsql.fetcher.structure_objects.information_schema.column import (
     InformationSchemaColumn,
 )
 from dialects.tsql.fetcher.structure_objects.sys.identity_column import IdentityColumn
-from dialects.tsql.fetcher.structure_objects.tsql_table import TsqlTable
+from dialects.tsql.fetcher.structure_objects.tsql_table import (
+    TsqlTable,
+    from_base_table,
+)
 from dialects.tsql.formatter.table_sql_formatter import (
     TableCreationFormatter,
     TableInsertFormatter,
 )
-from fetcher.structure_objects.column import Column
-from fetcher.structure_objects.column_type import ColumnType
+from tests.helpers import create_test_table as create_base_test_table
 from tests.helpers import get_test_data
 
 
@@ -32,40 +34,17 @@ class Test(TestCase):
 
 def create_test_table() -> TsqlTable:
     """Create test table"""
-    table = TsqlTable(
-        name="test_table",
-        schema_name="test_schema",
-        object_id=1,
-        columns=[
-            Column(
-                name="id",
-                type=ColumnType(
-                    name="int",
-                ),
-            ),
-            Column(
-                name="rowguid",
-                type=ColumnType(
-                    name="uniqueidentifier",
-                ),
-            ),
-            Column(
-                name="modifiedDate",
-                type=ColumnType(
-                    name="datetime",
-                ),
-            ),
-        ],
-        information_schema_columns=[
-            create_information_schema_column("test_table", "test_schema", "id", "int"),
-            create_information_schema_column(
-                "test_table", "test_schema", "rowguid", "uniqueidentifier"
-            ),
-            create_information_schema_column(
-                "test_table", "test_schema", "modifiedDate", "datetime"
-            ),
-        ],
-    )
+    table = from_base_table(create_base_test_table())
+    table.information_schema_columns = [
+        create_information_schema_column("test_table", "test_schema", "id", "int"),
+        create_information_schema_column(
+            "test_table", "test_schema", "rowguid", "uniqueidentifier"
+        ),
+        create_information_schema_column(
+            "test_table", "test_schema", "modifiedDate", "datetime"
+        ),
+    ]
+
     table.identity_columns = [
         create_identity_column("id"),
         create_identity_column("rowguid"),

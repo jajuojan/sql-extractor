@@ -2,7 +2,7 @@
 import argparse
 from abc import ABC, abstractmethod
 
-from cli.command_handler import CommandResult, CommandResultStatus
+from cli.command_output import CommandResult, CommandResultStatus
 from connection.database import DataBaseConnection
 from factory import Factory
 
@@ -10,18 +10,21 @@ from factory import Factory
 class BaseCommand(ABC):
     """Abstract base class for all CLI commands."""
 
+    # pylint: disable=protected-access
+
     def __init__(self) -> None:
         self._factory = Factory()
+
+    @property
+    @staticmethod
+    @abstractmethod
+    def command_name() -> str:
+        """Returns the name of the command."""
 
     @staticmethod
     @abstractmethod
     def parser_sub_parser(sub_parsers: argparse._SubParsersAction) -> None:
         """Register the sub parser for this command"""
-
-    @staticmethod
-    @abstractmethod
-    def command_name() -> str:
-        """Returns the name of the command."""
 
     @abstractmethod
     def handle(

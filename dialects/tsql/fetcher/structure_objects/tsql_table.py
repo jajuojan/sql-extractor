@@ -38,3 +38,14 @@ class TsqlTable(Table):
             if column.name == column_name:
                 return column
         return None
+
+
+def from_base_table(base_table: Table) -> TsqlTable:
+    """Create TSQL table from base table"""
+    table = TsqlTable(
+        name=base_table.name,
+        schema_name=base_table.schema_name,
+        object_id=base_table.object_id,
+        columns=base_table.columns,
+    )
+    return table

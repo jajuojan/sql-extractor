@@ -5,6 +5,7 @@ from dataclasses import dataclass
 
 @dataclass
 class InformationSchemaColumn:
+    # pylint: disable=too-many-instance-attributes
     """Column from INFORMATION_SCHEMA.COLUMNS"""
 
     table_catalog: str

@@ -2,17 +2,16 @@
 
 
 import argparse
-from typing import Type
-
-from factory import Factory
+from typing import List, Type
 
 from cli.command_output import CommandResult, CommandResultStatus
 from cli.commands.base_command import BaseCommand
 from cli.commands.print_create_table import PrintCreateTableCommand
 from cli.commands.print_insert import PrintInsertCommand
 from cli.commands.print_table_structure import PrintTableStructureCommand
+from factory import Factory
 
-_commands: list[Type[BaseCommand]] = [
+_commands: List[Type[BaseCommand]] = [
     PrintCreateTableCommand,
     PrintInsertCommand,
     PrintTableStructureCommand,

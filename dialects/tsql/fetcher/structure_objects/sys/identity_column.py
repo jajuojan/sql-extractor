@@ -5,6 +5,7 @@ from dataclasses import dataclass
 
 @dataclass
 class IdentityColumn:
+    # pylint: disable=too-many-instance-attributes
     """sys.identity_columns"""
 
     object_id: int

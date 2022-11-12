@@ -1,4 +1,6 @@
 """tbd"""
+from typing import List
+
 from connection.database import DataBaseConnection
 from dialects.tsql.connection_handler import TsqlConnectonHandler
 from dialects.tsql.fetcher.structure_fetcher import TsqlStructureFetcher
@@ -11,14 +13,14 @@ from formatters.base_formatter import BaseFormatter, FormatterType
 _sql_dialects = ["postgres", "tsql"]
 
 
-class Factory(object):
+class Factory:
     """Factory for the database dialect specific classes"""
 
     def __init__(self) -> None:
         pass
 
     @staticmethod
-    def allowed_dialects() -> list[str]:
+    def allowed_dialects() -> List[str]:
         """Returns the allowed dialects"""
         return _sql_dialects
 
