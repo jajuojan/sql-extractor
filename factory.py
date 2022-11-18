@@ -6,7 +6,7 @@ from dialects.tsql.connection_handler import TsqlConnectonHandler
 from dialects.tsql.fetcher.structure_fetcher import TsqlStructureFetcher
 from dialects.tsql.fetcher.table_fetcher import TsqlTableFetcher
 from dialects.tsql.formatter_handler import TsqlFormatterHandler
-from fetcher.database_structure import DatabaseStructure
+from fetcher.structure_objects.database import DatabaseStructure
 from fetcher.table_fetcher import TableFetcher
 from formatters.base_formatter import BaseFormatter, FormatterType
 
