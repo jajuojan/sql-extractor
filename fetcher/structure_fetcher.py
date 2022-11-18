@@ -3,8 +3,7 @@
 from abc import ABC, abstractmethod
 
 from connection.database import DataBaseConnection
-
-from fetcher.database_structure import DatabaseStructure
+from fetcher.structure_objects.database import DatabaseStructure
 
 
 class StructureFetcher(ABC):

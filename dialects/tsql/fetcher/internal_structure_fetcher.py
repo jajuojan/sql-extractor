@@ -2,19 +2,19 @@
 import typing
 
 from connection.database import DataBaseConnection
-from dialects.tsql.fetcher.structure_objects.information_schema.column import \
-    InformationSchemaColumn
-from dialects.tsql.fetcher.structure_objects.information_schema.procedure import \
-    Procedure
-from dialects.tsql.fetcher.structure_objects.information_schema.schema import \
-    Schema
-from dialects.tsql.fetcher.structure_objects.information_schema.table_info import \
-    TableInfo
-from dialects.tsql.fetcher.structure_objects.sys.database_info import \
-    DatabaseInfo
+from dialects.tsql.fetcher.structure_objects.information_schema.column import (
+    InformationSchemaColumn,
+)
+from dialects.tsql.fetcher.structure_objects.information_schema.procedure import (
+    Procedure,
+)
+from dialects.tsql.fetcher.structure_objects.information_schema.schema import Schema
+from dialects.tsql.fetcher.structure_objects.information_schema.table_info import (
+    TableInfo,
+)
+from dialects.tsql.fetcher.structure_objects.sys.database_info import DatabaseInfo
 from dialects.tsql.fetcher.structure_objects.sys.function import Function
-from dialects.tsql.fetcher.structure_objects.sys.identity_column import \
-    IdentityColumn
+from dialects.tsql.fetcher.structure_objects.sys.identity_column import IdentityColumn
 from dialects.tsql.fetcher.structure_objects.sys.principal import Principal
 from dialects.tsql.fetcher.structure_objects.sys.sys_object import SysObject
 
@@ -40,46 +40,48 @@ FROM sys.database_principals
 """
 
 _FETCH_DATABASES_SQL = """
-SELECT name, database_id, create_date, compatibility_level, collation_name FROM sys.databases
+SELECT
+name, database_id, create_date, compatibility_level, collation_name
+FROM sys.databases
 """
 
 _FETCH_SCHEMAS_SQL = """
-SELECT 
-catalog_name, schema_name, schema_owner, default_character_set_catalog, 
+SELECT
+catalog_name, schema_name, schema_owner, default_character_set_catalog,
 default_character_set_schema, default_character_set_name
 FROM INFORMATION_SCHEMA.SCHEMATA
 """
 
 _FETCH_TABLES_SQL = """
-SELECT 
-TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME, TABLE_TYPE 
+SELECT
+TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME, TABLE_TYPE
 FROM INFORMATION_SCHEMA.TABLES
 """
 
 _FETCH_PROCEDURES_SQL = """
 SELECT 
-ROUTINE_CATALOG, ROUTINE_SCHEMA, ROUTINE_NAME, ROUTINE_DEFINITION, ROUTINE_BODY, CREATED, LAST_ALTERED 
+ROUTINE_CATALOG, ROUTINE_SCHEMA, ROUTINE_NAME, ROUTINE_DEFINITION, ROUTINE_BODY, CREATED, LAST_ALTERED
 FROM INFORMATION_SCHEMA.ROUTINES
 WHERE ROUTINE_TYPE = 'PROCEDURE'
 """
 
 _FETCH_FUNCTIONS_SQL = """
-SELECT 
-o.name, o.object_id, o.schema_id, o.create_date, o.modify_date, o.type_desc, m.definition 
+SELECT
+o.name, o.object_id, o.schema_id, o.create_date, o.modify_date, o.type_desc, m.definition
 FROM sys.sql_modules m 
-INNER JOIN sys.objects o ON m.object_id = o.object_id 
+INNER JOIN sys.objects o ON m.object_id = o.object_id
 WHERE type_desc like '%function%'
 """
 
 _FETCH_SYS_OBJECTS_SQL = """
-SELECT 
+SELECT
 name, object_id, principal_id, schema_id, SCHEMA_NAME(schema_id) as schema_name, parent_object_id,
 type, type_desc, create_date, modify_date, is_ms_shipped, is_published, is_schema_published
 FROM sys.objects
 """
 
 _FETCH_COLUMNS_SQL = """
-SELECT 
+SELECT
 table_catalog, table_schema, table_name, column_name, ordinal_position, column_default, is_nullable,
 data_type, character_maximum_length, character_octet_length, numeric_precision,
 numeric_precision_radix, numeric_scale, datetime_precision, character_set_catalog,
