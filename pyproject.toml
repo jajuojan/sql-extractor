@@ -13,7 +13,7 @@ black = "^22.6.0"
 mypy = "^0.971"
 pylint = "^2.14.5"
 ipython = "^8.4.0"
-coverage = "^6.5.0"
+coverage = "^7.0.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
