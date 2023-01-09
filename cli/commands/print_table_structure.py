@@ -14,7 +14,6 @@ class PrintTableStructureCommand(BaseCommand):
 
     # pylint: disable=protected-access
 
-    @property
     @staticmethod
     def command_name() -> str:
         return "print-table-structure"
