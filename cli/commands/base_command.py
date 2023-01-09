@@ -15,7 +15,6 @@ class BaseCommand(ABC):
     def __init__(self) -> None:
         self._factory = Factory()
 
-    @property
     @staticmethod
     @abstractmethod
     def command_name() -> str:
