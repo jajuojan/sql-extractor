@@ -37,7 +37,7 @@ jobs:
         if: ${{ steps.release_please.outputs.release_created }}
 
       - name: Run PyCharm Security
-        uses: tonybaloney/pycharm-security@1.25.1
+        uses: tonybaloney/pycharm-security@1.28.0
         if: ${{ steps.release_please.outputs.release_created }}
         
       #- name: RELEASE - Upload release asset
