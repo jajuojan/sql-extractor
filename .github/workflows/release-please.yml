@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run release-please
-        uses: GoogleCloudPlatform/release-please-action@v3.7.1
+        uses: GoogleCloudPlatform/release-please-action@v4.1.3
         id: release_please
         with:
           release-type: python
@@ -18,11 +18,11 @@ jobs:
           pull-request-title-pattern: 'chore: release${component} ${version}'
 
       - name: RELEASE - Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         if: ${{ steps.release_please.outputs.release_created }}
 
       - name: RELEASE - Set-up Python env
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.8'
           cache: 'poetry'
@@ -37,7 +37,7 @@ jobs:
         if: ${{ steps.release_please.outputs.release_created }}
 
       - name: Run PyCharm Security
-        uses: tonybaloney/pycharm-security@1.25.1
+        uses: tonybaloney/pycharm-security@1.29.0
         if: ${{ steps.release_please.outputs.release_created }}
         
       #- name: RELEASE - Upload release asset
