@@ -1,4 +1,4 @@
-"""tbd"""
+"""Handles the formatter-selection for the tsql dialect"""
 
 from dialects.tsql.formatter.table_sql_formatter import (
     TableCreationFormatter,
@@ -19,7 +19,7 @@ class TsqlFormatterHandler:
         self,
         formatter_type: FormatterType,
     ) -> BaseFormatter:
-        """Returns the DB-connection based on the dialect and connection string"""
+        """Returns the formatter based on formatter type"""
         if formatter_type == FormatterType.SQL_CREATE_TABLE:
             return TableCreationFormatter()
         if formatter_type == FormatterType.SQL_CREATE_INSERT:

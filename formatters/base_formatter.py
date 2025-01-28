@@ -1,4 +1,5 @@
-"""Abstract base class for """
+"""Abstract base class for all formatters"""
+
 from abc import ABC, abstractmethod
 from enum import Enum
 
@@ -15,7 +16,7 @@ class FormatterType(Enum):
 
 
 class BaseFormatter(ABC):
-    """tbd"""
+    """Abstract base class for all formatters"""
 
     def __init__(self) -> None:
         pass

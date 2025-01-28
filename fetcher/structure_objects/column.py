@@ -1,4 +1,4 @@
-"""TBD"""
+"""Column structure object"""
 
 from dataclasses import dataclass
 

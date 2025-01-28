@@ -1,7 +1,6 @@
-"""TBD"""
+"""A markdown formatter for table structure"""
 
 from fetcher.structure_objects.table import Table
-
 from formatters.base_formatter import BaseFormatter
 
 

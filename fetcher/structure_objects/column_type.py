@@ -1,4 +1,5 @@
-"""tbd"""
+"""Base class for column types"""
+
 from dataclasses import dataclass
 
 
