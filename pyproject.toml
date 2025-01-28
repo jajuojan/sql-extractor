@@ -11,7 +11,7 @@ python = "^3.8"
 [tool.poetry.dev-dependencies]
 black = "^24.8.0"
 mypy = "^1.14"
-pylint = "^2.15.10"
+pylint = "^3.2.7"
 ipython = "^8.12.3"
 coverage = "^7.6.1"
 
