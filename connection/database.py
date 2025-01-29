@@ -1,4 +1,5 @@
 """Base-class for databases"""
+
 import abc
 import typing
 from abc import ABCMeta

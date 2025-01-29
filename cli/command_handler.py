@@ -1,6 +1,5 @@
 """TBD"""
 
-
 import argparse
 from typing import List, Type
 

@@ -1,4 +1,5 @@
 """Helpers for SqlServer"""
+
 import subprocess
 
 

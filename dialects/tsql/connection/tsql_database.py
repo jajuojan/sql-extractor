@@ -1,5 +1,4 @@
 """Low-level connection to SqlServer"""
-# pylint: disable=import-error
 
 from typing import Any, List
 

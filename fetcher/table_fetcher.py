@@ -1,9 +1,9 @@
 """Sys-object Fetcher"""
+
 import typing
 from abc import ABC, abstractmethod
 
 from connection.database import DataBaseConnection
-
 from fetcher.structure_objects.table import Table
 
 

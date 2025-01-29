@@ -1,4 +1,5 @@
 """TBD"""
+
 import argparse
 
 from cli.command_output import CommandResult, CommandResultStatus

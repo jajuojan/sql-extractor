@@ -1,4 +1,5 @@
 """TBD"""
+
 import argparse
 
 from cli.commands.base_command import BaseCommand
