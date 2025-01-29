@@ -2,6 +2,8 @@
 
 import subprocess
 
+from dialects.tsql.tsql_exception import TSqlDataBaseException
+
 
 def get_local_server_name() -> str:
     """Try to fetch the name of the local server"""
@@ -21,4 +23,4 @@ def _parse_local_server_name(cmd_output: str) -> str:
             return i.strip()
         if all(map(lambda x: x == "-", i)):
             header_end_found = True
-    raise Exception("Could not parse local server name from output.")
+    raise TSqlDataBaseException("Could not parse local server name from output.")

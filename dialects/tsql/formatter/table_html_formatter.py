@@ -1,6 +1,5 @@
 """TBD"""
 
-
 from formatters.table_html_formatter import HtmlTableStructureFormatter
 
 
