@@ -1,4 +1,8 @@
-"""tbd"""
+"""
+This module provides a Factory class for creating database dialect-specific classes
+such as connections, structure fetchers, table fetchers, and formatters.
+"""
+
 from typing import List
 
 from connection.database import DataBaseConnection
@@ -14,7 +18,9 @@ _sql_dialects = ["postgres", "tsql"]
 
 
 class Factory:
-    """Factory for the database dialect specific classes"""
+    """
+    Factory for the database dialect specific classes.
+    """
 
     def __init__(self) -> None:
         pass

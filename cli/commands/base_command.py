@@ -1,4 +1,5 @@
 """Abstract base class for all CLI commands."""
+
 import argparse
 from abc import ABC, abstractmethod
 

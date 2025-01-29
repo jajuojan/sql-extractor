@@ -1,12 +1,10 @@
 """tbd"""
 
-
+from connection.database import DataBaseConnection
 from dialects.tsql.connection.tsql_database import (
     with_connection,
     with_local_connection,
 )
-
-from connection.database import DataBaseConnection
 
 
 class TsqlConnectonHandler:

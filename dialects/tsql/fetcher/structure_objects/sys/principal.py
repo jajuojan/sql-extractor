@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Principal:
-   # pylint: disable=too-many-instance-attributes
+    # pylint: disable=too-many-instance-attributes
     """sys.database_principals"""
 
     name: str
