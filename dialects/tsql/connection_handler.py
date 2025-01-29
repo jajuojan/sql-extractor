@@ -23,5 +23,6 @@ class TsqlConnectonHandler:
                 db_instance = with_local_connection(db_name)
             else:
                 db_instance = with_connection(connection_string)
+            return db_instance
 
-        return db_instance
+        raise NotImplementedError("Unknown dialect")
