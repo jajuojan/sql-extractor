@@ -4,6 +4,7 @@ from dialects.tsql.formatter.table_sql_formatter import (
     TableCreationFormatter,
     TableInsertFormatter,
 )
+from dialects.tsql.tsql_exception import TSqlDataBaseException
 from formatters.base_formatter import BaseFormatter, FormatterType
 from formatters.table_html_formatter import HtmlTableStructureFormatter
 from formatters.table_md_formatter import MdTableStructureFormatter
@@ -29,4 +30,4 @@ class TsqlFormatterHandler:
         if formatter_type == FormatterType.MD_TABLE_STRUCTURE:
             return MdTableStructureFormatter()
 
-        raise Exception("Unknown formatter type")
+        raise TSqlDataBaseException("Unknown formatter type")

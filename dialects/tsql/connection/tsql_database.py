@@ -6,6 +6,7 @@ import pyodbc
 
 from connection.database import DataBaseConnection
 from connection.sql_row import SqlRow, SqlRowSet, SqlTypeRowItem, SqlValueRowItem
+from dialects.tsql.tsql_exception import TSqlDataBaseException
 
 
 class TSqlDataBaseConnection(DataBaseConnection):
@@ -18,7 +19,7 @@ class TSqlDataBaseConnection(DataBaseConnection):
     def _fetch_raw_single_row(self, sql: str, allow_multiple: bool = False) -> Any:
         rows = self._fetch_raw_rows(sql)
         if not allow_multiple and len(rows) > 1:
-            raise Exception("More than one row returned.")
+            raise TSqlDataBaseException("More than one row returned.")
         return rows[0]
 
     # TODO: use fetchall() ??

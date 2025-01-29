@@ -1,4 +1,5 @@
 """Structure Fetchers"""
+
 import typing
 
 from connection.database import DataBaseConnection

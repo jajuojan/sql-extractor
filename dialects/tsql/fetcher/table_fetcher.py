@@ -1,11 +1,12 @@
 """Sys-object Fetcher"""
+
 import typing
 
 from connection.database import DataBaseConnection
 from dialects.tsql.fetcher.internal_structure_fetcher import StructureFetcher
 from dialects.tsql.fetcher.structure_objects.tsql_table import TsqlTable
 from dialects.tsql.fetcher.sys_object_fetcher import SysObjectFetcher
-
+from dialects.tsql.tsql_exception import TSqlDataBaseException
 from fetcher.structure_objects.column import Column
 from fetcher.structure_objects.column_type import ColumnType
 from fetcher.table_fetcher import TableFetcher
@@ -51,7 +52,7 @@ class TsqlTableFetcher(TableFetcher):
         if "." in identifier:
             splitted = identifier.split(".")
             if len(splitted) != 2:
-                raise Exception("Unable to parse table name")
+                raise TSqlDataBaseException("Unable to parse table name")
             schema_name, table_name = splitted
 
         tables = self.fetch_tables()
@@ -61,7 +62,7 @@ class TsqlTableFetcher(TableFetcher):
             ):
                 return table
 
-        raise Exception("No such table found")
+        raise TSqlDataBaseException("No such table found")
 
     def _inject_with_tables(self, table: TsqlTable) -> None:
         table.table_sys_object = self.sys_obj_fetcher.fetch_sys_object_by_id(

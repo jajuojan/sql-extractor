@@ -17,10 +17,12 @@ from formatters.base_formatter import BaseFormatter, FormatterType
 _sql_dialects = ["postgres", "tsql"]
 
 
+class FactoryException(Exception):
+    """Exception for the factory class"""
+
+
 class Factory:
-    """
-    Factory for the database dialect specific classes.
-    """
+    """Factory for the database dialect specific classes."""
 
     def __init__(self) -> None:
         pass
@@ -37,7 +39,7 @@ class Factory:
         if dialect == "tsql":
             return TsqlConnectonHandler().get_connection(dialect, connection_string)
 
-        raise Exception("Unknown dialect")
+        raise FactoryException("Unknown dialect")
 
     def get_structure(
         self, database_connection: DataBaseConnection
@@ -46,7 +48,7 @@ class Factory:
         if database_connection.dialect == "tsql":
             return TsqlStructureFetcher(database_connection).fetch()
 
-        raise Exception("Unknown dialect")
+        raise FactoryException("Unknown dialect")
 
     # TODO: Remove this and use tables via get_structure instead
     def get_table_fetcher(
@@ -56,7 +58,7 @@ class Factory:
         if database_connection.dialect == "tsql":
             return TsqlTableFetcher(database_connection)
 
-        raise Exception("Unknown dialect")
+        raise FactoryException("Unknown dialect")
 
     def get_formatter(
         self,
@@ -67,4 +69,4 @@ class Factory:
         if dialect == "tsql":
             return TsqlFormatterHandler().get_formatter(formatter_type)
 
-        raise Exception("Unknown dialect")
+        raise FactoryException("Unknown dialect")
