@@ -48,6 +48,7 @@ class TsqlTableFetcher(TableFetcher):
 
     def fetch_table_with_name(self, identifier: str) -> TsqlTable:
         """Fetch table with name"""
+        schema_name = None
         table_name = identifier
         if "." in identifier:
             splitted = identifier.split(".")
